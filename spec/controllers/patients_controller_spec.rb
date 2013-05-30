@@ -3,8 +3,16 @@ require 'spec_helper'
 describe PatientsController do
 
   describe 'GET #index' do
-    it "populates an array of patients"
-    it "renders the index view"
+    it "populates an array of patients" do
+      patient = Patient.create(first_name: "Sheila", last_name: "Hanlon")
+      get :index
+      expect(assigns(:patients)).to match_array [patient]
+    end
+
+    it "renders the index view" do
+      get :index
+      expect(response).to render_template :index
+    end
   end
 
   describe 'GET #show' do
