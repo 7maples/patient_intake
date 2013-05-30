@@ -1,0 +1,8 @@
+<h1>New Patient</h1>
+
+<%= simple_form_for(@patient) do |f|%>
+  <%= f.input(:first_name) %>
+  <%= f.input(:last_name) %>
+  <%= f.button :submit, class: "btn btn-danger" %>
+<% end %>
+
