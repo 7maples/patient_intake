@@ -8,7 +8,7 @@ class Patient < ActiveRecord::Base
     [first_name, last_name].join " "
   end
 
-  %w[condition sex dob].each do |key|
+  %w[mobile_phone date_of_birth sex weight conditions].each do |key|
     attr_accessible key
     scope "has_#{key}", lambda { |value| where("responses @> hstore(?, ?)", key, value) }
 

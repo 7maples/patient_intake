@@ -18,17 +18,30 @@ describe PatientsController do
       expect(response).to render_template :show
     end
 
-    it "displays the patient's data"
   end
 
   describe 'POST #create' do
     context "with valid attributes" do
-      it "saves the new patient in the database"
-      it "redirects to the home page"
+      it "saves the new patient in the database" do
+        expect{
+          post :create, patient: attributes_for(:patient)
+        }.to change(Patient, :count).by(1)
+      end
+
+      it "redirects to #show" do
+        post :create, patient: attributes_for(:patient)
+        #not passing ID properly? don't understand why failing
+        expect(response).to redirect_to patient_path
+      end
     end
 
     context "with invalid attributes" do
-      it "does not save the patient to the database"
+      it "does not save the patient to the database" do
+        expect{
+          post :create, patient: attributes_for(:invalid_patient)
+        }.to_not change(Patient, :count)
+      end
+
       it "re-renders the :new template with errors"
     end
   end

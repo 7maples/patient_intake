@@ -9,9 +9,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @patient = Patient.last
-    # @patient = Patient.find(current_patient.id)
-    # switch to commented out code when sessions in place
+    @patient = Patient.find_by_id(params[:id])
   end
 
   def create
