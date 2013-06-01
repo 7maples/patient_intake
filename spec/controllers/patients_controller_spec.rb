@@ -11,7 +11,10 @@ describe PatientsController do
 
   describe 'GET #show' do
     it "renders the show template" do
-      get :show
+      patient = create(:patient)
+      get :show, id: patient
+      #had to create patient and pass id to show for this test
+      #to work
       expect(response).to render_template :show
     end
 
