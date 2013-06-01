@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'pg'
 gem 'simple_form'
+gem 'activerecord-postgres-hstore'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

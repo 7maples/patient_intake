@@ -12,7 +12,7 @@ describe PatientsController do
   describe 'GET #show' do
     it "renders the show template" do
       get :show
-      expect(response).to render_template :index
+      expect(response).to render_template :show
     end
 
     it "displays the patient's data"
