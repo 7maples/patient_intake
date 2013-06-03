@@ -1,13 +1,16 @@
 <h1>New Patient</h1>
 
-<%= simple_form_for(@patient) do |f|%>
+<%= simple_form_for(@patient) do |f| %>
   <%= f.error_notification %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
-  <%= f.input :date_of_birth %>
+  <%= f.input :age, collection: 18..100, prompt: "Select your age" %>
   <%= f.input :sex %>
-  <%= f.input :weight %>
-  <%= f.input :conditions, as: :check_boxes %>
+  <%= f.input :weight, placeholder: "in pounds" %>
+  <h3>Conditions:</h3>
+  <%= f.collection_check_boxes :conditions, form_conditions, :first, :last %>
+  <h3>Symptoms:</h3>
+  <%= f.collection_check_boxes :symptoms, form_symptoms, :first, :last %>
 
   <%= f.error :base %>
   <%= f.button :submit, class: "btn btn-primary" %>

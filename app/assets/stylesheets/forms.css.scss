@@ -5,13 +5,13 @@
     width: $indent - 20px;
     text-align: right;
     margin: 2px 10px;
-    &.radio, &.checkbox {
+    &.radio, &.checkbox, &.collection_check_boxes {
       float: none;
       margin: 0;
       width: auto;
       text-align: left;
     }
-    &.checkbox {
+    &.checkbox, &.collection_check_boxes {
       display: block;
       margin-left: $indent;
     }
