@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+[
+  "Cancer",
+  "Arthritis",
+  "IBS",
+  "Celiac",
+  "Lyme",
+  "Dimentia"
+
+  ].each do |condition|
+  Condition.create! name: condition
+end
+
+
