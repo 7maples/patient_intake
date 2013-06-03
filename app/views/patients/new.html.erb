@@ -7,7 +7,8 @@
   <%= f.input :age, collection: 18..100, prompt: "Select your age" %>
   <%= f.input :sex %>
   <%= f.input :weight, placeholder: "in pounds" %>
-  <h3>Conditions:</h3>
+  <%= f.input :allergies, placeholder: "list all allergies - food, meds, etc" %>
+  <h3>Known Conditions:</h3>
   <%= f.collection_check_boxes :conditions, form_conditions, :first, :last %>
   <h3>Symptoms:</h3>
   <%= f.collection_check_boxes :symptoms, form_symptoms, :first, :last %>
