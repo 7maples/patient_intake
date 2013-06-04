@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'simple_form'
 gem 'activerecord-postgres-hstore'
+gem 'twilio-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :test do
