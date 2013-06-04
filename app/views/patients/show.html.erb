@@ -1,4 +1,6 @@
 <h1>Patient Information</h1>
 
 <%= @patient.name %>
-<%= @patient.responses %>
+<%= @patient.age %>
+<%= formatted_list(@patient.conditions) %>
+<%= formatted_list(@patient.symptoms) %>

@@ -15,16 +15,20 @@ class PatientsController < ApplicationController
 
   def create
     #clean up conditions data before saving
-    # conditions = params[:patient][:conditions]
-    # conditions = conditions.map {|c, _| c}
-    #   params[:patient][:conditions] = conditions
-    @patient = Patient.new(params[:patient])
+    conditions = sanitize_conditions(params[:patient][:conditions])
+
+    @patient = Patient.new(params[:patient].merge(conditions: conditions))
+
     if @patient.save
       @patient.send_text_message
       redirect_to patient_path(@patient)
     else
       render action: 'new'
     end
+  end
+
+  def sanitize_conditions(conditions)
+    conditions ? conditions.map {|c, _| c}.reject(&:empty?) : []
   end
 
   def search_for_patient
