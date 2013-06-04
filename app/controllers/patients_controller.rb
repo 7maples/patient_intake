@@ -19,6 +19,7 @@ class PatientsController < ApplicationController
     #   params[:patient][:conditions] = conditions
     @patient = Patient.new(params[:patient])
     if @patient.save
+      @patient.send_text_message
       redirect_to patient_path(@patient)
     else
       render action: 'new'
