@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :patient do
-    first_name "Jen"
-    last_name "Eliuk"
+    first_name "Commander"
+    last_name "Hadfield"
 
     factory :invalid_patient do
       first_name nil

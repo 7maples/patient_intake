@@ -25,7 +25,8 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'dotenv-rails' #git ignore this
+  gem 'dotenv-rails'
+  gem 'vcr'
 end
 
 group :test do

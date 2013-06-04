@@ -30,8 +30,8 @@ describe PatientsController do
 
       it "redirects to #show" do
         post :create, patient: attributes_for(:patient)
-        #not passing ID properly? don't understand why failing
-        expect(response).to redirect_to patient_path
+        patient = Patient.first
+        expect(response).to redirect_to patient_path(patient)
       end
     end
 
@@ -41,8 +41,6 @@ describe PatientsController do
           post :create, patient: attributes_for(:invalid_patient)
         }.to_not change(Patient, :count)
       end
-
-      it "re-renders the :new template with errors"
     end
   end
 end

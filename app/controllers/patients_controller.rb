@@ -15,7 +15,7 @@ class PatientsController < ApplicationController
   def create
     #clean up conditions data before saving
     # conditions = params[:patient][:conditions]
-    # conditions.map {|c, _| c}
+    # conditions = conditions.map {|c, _| c}
     #   params[:patient][:conditions] = conditions
     @patient = Patient.new(params[:patient])
     if @patient.save
