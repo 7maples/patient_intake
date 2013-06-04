@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'vcr'
 
 # Add this to load Capybara integration:
 require 'capybara/rspec'
@@ -27,4 +28,8 @@ RSpec.configure do |config|
   end
 end
 
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :webmock
+end
 

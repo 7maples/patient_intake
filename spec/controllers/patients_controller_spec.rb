@@ -22,16 +22,21 @@ describe PatientsController do
 
   describe 'POST #create' do
     context "with valid attributes" do
+
       it "saves the new patient in the database" do
+       VCR.use_cassette('patient') do
         expect{
           post :create, patient: attributes_for(:patient)
-        }.to change(Patient, :count).by(1)
+          }.to change(Patient, :count).by(1)
+        end
       end
 
       it "redirects to #show" do
-        post :create, patient: attributes_for(:patient)
-        patient = Patient.first
-        expect(response).to redirect_to patient_path(patient)
+        VCR.use_cassette('patient') do
+          post :create, patient: attributes_for(:patient)
+          patient = Patient.first
+          expect(response).to redirect_to patient_path(patient)
+        end
       end
     end
 

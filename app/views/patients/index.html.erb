@@ -4,4 +4,14 @@
   <li><%= patient.name %></li>
 <% end %>
 
+<h2>Search for a Patient:</h2>
+  <% form_tag patients_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+
+
+
 
