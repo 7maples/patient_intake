@@ -1,6 +1,25 @@
-<h1>Patient Information</h1>
+<h2>Patient Information</h2>
 
-<%= @patient.name %>
-<%= @patient.age %>
-<%= formatted_list(@patient.conditions) %>
-<%= formatted_list(@patient.symptoms) %>
+<table>
+  <tr>
+    <td>Name: <%= @patient.name %></td>
+  </tr>
+  <tr>
+    <td>Age: <%= @patient.age %></td>
+  </tr>
+  <tr>
+    <td>Sex: <%= @patient.sex %></td>
+  </tr>
+  <tr>
+    <td>Weight: <%= @patient.weight %></td>
+  </tr>
+  <tr>
+    <td>Allergies: <%= @patient.allergies %></td>
+  </tr>
+  <tr>
+    <td>Known Conditions: <%= formatted_list(@patient.conditions) %></td>
+  </tr>
+  <tr>
+    <td>Symptoms: <%= formatted_list(@patient.symptoms) %></td>
+  </tr>
+</table>
