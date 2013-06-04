@@ -1,11 +1,10 @@
-<h1>List of All Patients</h1>
-
-<% @patients.each do |patient| %>
-  <li><%= patient.name %></li>
-<% end %>
+<h2>List of All Patients</h2>
+  <% @patients.each do |patient| %>
+    <li><%= patient.name %></li>
+  <% end %>
 
 <h2>Search for a Patient:</h2>
-  <% form_tag patients_path, :method => 'get' do %>
+  <%= form_tag patients_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search", :name => nil %>

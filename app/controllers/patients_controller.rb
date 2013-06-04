@@ -14,7 +14,6 @@ class PatientsController < ApplicationController
   end
 
   def create
-    #clean up conditions data before saving
     conditions = sanitize_conditions(params[:patient][:conditions])
 
     @patient = Patient.new(params[:patient].merge(conditions: conditions))
@@ -29,21 +28,6 @@ class PatientsController < ApplicationController
 
   def sanitize_conditions(conditions)
     conditions ? conditions.map {|c, _| c}.reject(&:empty?) : []
-  end
-
-  def search_for_patient
-    # new_stocker = Customer.find_by_email(params[:email])
-    # if new_stocker.nil?
-    #   Resque.enqueue(SignUpEmail, current_user.id, params[:email])
-    #   redirect_to :back, notice: "User does not have an account, email invitation sent."
-    # elsif new_stocker.store_stocker?(current_store)
-    #   redirect_to :back, notice: "User is already an stocker for your store."
-    # else
-    #   Store.include_stocker(new_stocker.id, current_store.id)
-    #   Resque.enqueue(NewStoreStockerEmail, new_stocker.id,current_store.id)
-
-    #   redirect_to :back, notice: "User assigned as a stocker."
-    # end
   end
 end
 

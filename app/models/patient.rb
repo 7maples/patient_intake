@@ -37,4 +37,16 @@ class Patient < ActiveRecord::Base
       :to => client_number,
       :body => "#{self.name} has completed their intake form")
   end
+
+  #Not working
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      redirect_to patient_path(@patient)
+    else
+      find(:all)
+      redirect_to patient_path(@patient)
+    end
+  end
 end
+
