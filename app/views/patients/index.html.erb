@@ -29,7 +29,7 @@ jQuery(function($) {
           var currentPatient = json[i];
           console.log(currentPatient);
 
-          var patientHTML = "<h3><a href='"+currentPatient.url + "'>" + currentPatient.name + "</a></h3>";
+          var patientHTML = "<h4><a href='"+currentPatient.url + "'>" + currentPatient.name + "</a></h4>";
 
           destination.append(patientHTML);
         }
