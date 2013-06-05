@@ -1,1 +1,1 @@
-alert("Welcome! Please complete your intake form");
+alert("Welcome! Please complete your intake form.");

@@ -4,15 +4,38 @@
   <% end %>
 
 <h2>Search for a Patient:</h2>
-  <%= form_tag patients_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search by Last Name", :name => nil %>
-    </p>
-  <% end %>
-  <% @found_patients.each do |patient| %>
-    <%= link_to patient.name, patient_path(patient) %>
-  <% end %>
+  <%= text_field_tag :query_string %>
+  <a id="patient-search">Search by Last Name</a>
 
+<div id="search-results"></div>
+
+<script type="text/javascript">
+
+jQuery(function($) {
+
+  $("#patient-search").on("click",function() {
+    console.log("searching");
+    var query_string = $("#query_string").val();
+    queryForPatients(query_string);
+  });
+
+  queryForPatients = function(query) {
+    $.getJSON("<%= patients_path %>?search=" + query ,function(json){
+
+      var destination = $("#search-results");
+      destination.html("");
+      console.log("searching for patients - " + json);
+        for(var i = 0; i < json.length; i++) {
+          var currentPatient = json[i];
+          console.log(currentPatient);
+
+          var patientHTML = "<h3><a href='"+currentPatient.url + "'>" + currentPatient.name + "</a></h3>";
+
+          destination.append(patientHTML);
+        }
+    });
+  };
+});
+</script>
 
 
