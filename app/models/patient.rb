@@ -38,7 +38,7 @@ class Patient < ActiveRecord::Base
       :body => "#{self.name} has completed their intake form")
   end
 
-  #Not working
+  #Not working, also need test
   def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])

@@ -6,7 +6,11 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
-    @patient = Patient.find_by_id(params[:id])
+    @found_patients = Patient.where("last_name LIKE ?", "%#{params[:search]}%")
+    respond_to do
+      format.html
+      format.json { json: @found_patients }
+    end
   end
 
   def show

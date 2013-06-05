@@ -2,4 +2,4 @@ Patient Intake
 
 First individual project for gSchool.
 
-Customizable patient intake application to replace paper forms, notify a doctor the patient has completed the form, and more. Integration with Twilio API.
+Customizable patient intake application to replace paper forms, notify a doctor the patient has completed the form, and more. Integrated with Twilio API and using hstore to store all patient responses.

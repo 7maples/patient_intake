@@ -33,4 +33,5 @@ end
 group :test do
   gem 'sqlite3'
   gem 'webmock'
+  gem 'simplecov', :require => false
 end
