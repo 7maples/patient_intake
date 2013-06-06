@@ -9,6 +9,7 @@ require 'vcr'
 # Add this to load Capybara integration:
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'capybara/firebug'
 
 RSpec.configure do |config|
   #Include Factory Girl syntax to simplify calls to factories
@@ -18,7 +19,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)
   end
 
@@ -34,5 +35,6 @@ end
 VCR.configure do |c|
   c.cassette_library_dir = 'fixtures/vcr_cassettes'
   c.hook_into :webmock
+  c.ignore_localhost = true
 end
 

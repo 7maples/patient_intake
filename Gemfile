@@ -28,6 +28,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'vcr'
   gem 'pry'
+  gem 'capybara-firebug'
 end
 
 group :test do
