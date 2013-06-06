@@ -1,5 +1,10 @@
 .simple_form {
   $indent: 120px;
+  input[type="checkbox"] {
+    float:left;
+    margin-left: 2em;
+    margin-right: 1em;
+  }
   label {
     float: left;
     width: $indent - 20px;
@@ -13,7 +18,7 @@
     }
     &.checkbox, &.collection_check_boxes {
       display: block;
-      margin-left: $indent;
+      margin-left: 20px;
     }
     &.radio {
       margin-right: 10px;
